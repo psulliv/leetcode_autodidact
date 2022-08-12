@@ -17,7 +17,7 @@ impl Solution {
                 if (first_num + sec_num) == target {
                     return vec![
                         i32::try_from(first_idx).unwrap(),
-                        i32::try_from(sec_idx).unwrap(),
+                        i32::try_from(sec_idx + first_idx + 1).unwrap(),
                     ];
                 }
             }
@@ -32,5 +32,10 @@ mod tests {
     #[test]
     fn basic_test() {
         assert_eq!(vec![1, 3], Solution::two_sum(vec![1, 2, 3, 4], 6));
+    }
+
+    #[test]
+    fn another_basic_test() {
+        assert_eq!(vec![1, 5], Solution::two_sum(vec![1, 2, 3, 4, 5, 6], 8));
     }
 }
